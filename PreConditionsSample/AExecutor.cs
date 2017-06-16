@@ -54,8 +54,8 @@ namespace PreconditionsSample
         protected void Third()
         {
             Print("Third state.");            
-            EVENTS_GENERATOR.ThrowCustomEvent(EVENT_CONDITION, "Event Condition", CurrentStateName, 3);
-            EVENTS_GENERATOR.ThrowCustomEvent(EVENT_CONDITION_VALUES, "Event Condition", CurrentStateName, 3, "Values", 20);
+            SignalEvent(EVENT_CONDITION, 3);
+            SignalEvent(EVENT_CONDITION_VALUES, 3, "Values", 20);
             Print("Throwed EVENT_CONDITION event.");
             Sleep(2000);
         }
