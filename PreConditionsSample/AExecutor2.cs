@@ -1,33 +1,41 @@
 using System;
 using AutomaFramework;
 using AutomaFramework.Attributes;
+using AutomaFramework.Attributes.Events;
 
 namespace PreconditionsSample
 {
     public class AExecutor2 : Automa
     {
 
-
+        /// <summary>
+        /// Declare events with attribute [Event]
+        /// </summary>
+        [Event]
         public const String EVENT_SECOND = "eventSecond";
+
+        /// <summary>
+        /// This event has got a parameter of type "int" named "number".
+        /// </summary>
+        [Event]
+        [EventParam(Name = "number", Type = typeof(int))]
         public const String EVENT_CONDITION = "eventCondition";
 
 
 
-        public AExecutor2()
-        {
-            DeclareEvent(EVENT_SECOND);
-            DeclareEvent(EVENT_CONDITION);
-        }
-
-
         public const string STATE_FIRST = "First";
 
+        /// <summary>
+        /// Mark this state as Default so when this automa is started this state will be executed first.
+        /// </summary>
         [DefaultState]
         [State(description = "First state", selectable = false)]
         [NextState(state = STATE_SECOND)]
         protected void First()
         {
             Print("First state.");
+
+            // Simulate some work
             Sleep(2000);
         }
 
@@ -38,9 +46,13 @@ namespace PreconditionsSample
         [NextState(state = STATE_THIRD)]
         protected void Second()
         {
+
+            Print("Second state.");
+
             SignalEvent(EVENT_SECOND);
             Print("Throwed event EVENT_SECOND.");
-            Print("Second state.");
+
+            // Simulate some work
             Sleep(2000);
         }
 
@@ -52,8 +64,11 @@ namespace PreconditionsSample
         protected void Third()
         {
             Print("Third state.");
+
+            // Simulate some work
             Sleep(2000);
-            EVENTS_GENERATOR.ThrowCustomEvent(EVENT_CONDITION, "Event Condition", "Third", 3);
+
+            SignalEvent(EVENT_CONDITION, 3);
             Print("Throwed EVENT_CONDITION event.");
         }
 
@@ -65,7 +80,10 @@ namespace PreconditionsSample
         protected void Fourth()
         {
             Print("Fourth state.");
+
+            // Simulate some work
             Sleep(2000);
+
             Print("Fourth state ends.");
         }
 

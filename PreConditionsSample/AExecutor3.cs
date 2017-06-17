@@ -16,6 +16,7 @@ namespace PreconditionsSample
         protected void AExecutor2Killed()
         {
             Print("AExecutor2Killed state.");
+            // Simulate some work
             Sleep(2000);
         }
 
