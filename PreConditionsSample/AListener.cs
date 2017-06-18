@@ -181,17 +181,6 @@ namespace PreconditionsSample
         }
 
 
-        public new void Print(string s)
-        {
-            base.Print(s);
-        }
-
-
-        public new void Sleep(int millis)
-        {
-            base.Sleep(millis);
-        }
-
-
+     
     }
 }
