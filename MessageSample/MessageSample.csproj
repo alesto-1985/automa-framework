@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A5A85FCA-2CBC-46E5-BA55-207D783D5583}</ProjectGuid>
+    <ProjectGuid>{210FD40A-6CAF-47D1-A84F-7ED8247E31D7}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>PreConditionsSample</RootNamespace>
-    <AssemblyName>PreConditionsSample</AssemblyName>
+    <RootNamespace>MessageSample</RootNamespace>
+    <AssemblyName>MessageSample</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -45,11 +45,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AExecutor.cs" />
-    <Compile Include="AExecutor2.cs" />
-    <Compile Include="AExecutor3.cs" />
-    <Compile Include="AListener.cs" />
-    <Compile Include="AMainEnvironment.cs" />
+    <Compile Include="Messages\AlertMessage.cs" />
+    <Compile Include="AMessageReceiver.cs" />
+    <Compile Include="AMessageSender.cs" />
+    <Compile Include="AMessageSampleEnvironment.cs" />
+    <Compile Include="Messages\Task.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
